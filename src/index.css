@@ -3,6 +3,7 @@ body {
     font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
    
 }
 
@@ -10,12 +11,4 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "inter", monospace;
 }
 
-.circle-packing-label {
-    font-weight: bold !important;
-    fill: white !important; /* In SVG, the color of the text is controlled by the fill property */
-}
 
-svg .nivo_circle_packing_text {
-    fill: white !important;
-    font-weight: bold !important;
-}

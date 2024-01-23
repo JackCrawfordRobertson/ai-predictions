@@ -1,8 +1,36 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height of the viewport */
+    justify-content: space-between; /* Space out the header and whole-section */
+    margin-bottom: 2em;
+
+}
+
+.App-header {
+    flex-shrink: 0; /* Prevent the header from shrinking */
+}
+
+.whole-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    flex-grow: 1; /* Grow to fill remaining space */
+    width: 100%; /* Full width */
+    z-index: 10;
+}
+
 .react-typewriter-text {
     font-size: 2em;
     color: #333333; /* Customize text color */
-    font-weight: 500; /* Make cursor thicker */
+    font-weight: 900; /* Make cursor thicker */
     line-height: 1.5em;
+}
+
+.graphic {
+    width: 40vw;
+    z-index: 10;
 }
 
 .react-typewriter-pointer {
@@ -13,27 +41,20 @@
     margin: 0; /* Adjust margin if needed */
 }
 
-.user-input-container {
-    position: relative;
-    bottom: -100px; /* Start off-screen */
-    opacity: 0;
-    transition: bottom 1s ease-out, opacity 1s ease-out;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    z-index: 11;
+/*  */
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    /* Adjust the max-width as needed for your design */
+    .graphic {
+        width: 100%; /* Full width on mobile devices */
+    }
+    .whole-section {
+        padding: 0; /* Remove padding on mobile devices */
+        margin: 0; /* Remove margin on mobile devices */
+    }
+    .App {
+        height: 100%; /* Remove height on mobile devices */
+    }
 }
-
-.user-input-container.animate {
-    bottom: 0; /* Move into view */
-    opacity: 1;
-}
-
-
-
-
-
-
-
-
-
