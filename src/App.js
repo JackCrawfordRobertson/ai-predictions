@@ -10,7 +10,7 @@ import "./TypingEffect.css";
 
 function App() {
     const initialText =
-        "What is the scale of C02 emissions generated since the beginning of the Israel-Gaza conflict? While in the West, there is a significant emphasis on small savings in Co2 emissions,";
+        "What is the scale of CO2 emissions generated since the beginning of the Israel-Gaza conflict? While in the West, we focus on small savings in Co2 emissions,";
     const secondText =
         " we are ignoring the elephant in the room. The elephant is the war in the middle east. The war in the middle east has been going on for decades and has produced more co2 emissions than any other war in history. The war in the middle east has produced more co2 emissions than the entire country of the United States. The war in the middle east has produced more co2 emissions than the entire country of China. The war in the middle east has produced more co2 emissions than the entire country of India. The war in the middle east has produced more co2 emissions than the entire country of Russia. The war in the middle east has produced more co2 emissions than the entire country of Japan. The war in the middle east has produced more co2 emissions than the entire country of Germany.";
 
