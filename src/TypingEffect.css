@@ -1,0 +1,39 @@
+.react-typewriter-text {
+    font-size: 2em;
+    color: #333333; /* Customize text color */
+    font-weight: 500; /* Make cursor thicker */
+    line-height: 1.5em;
+}
+
+.react-typewriter-pointer {
+    font-size: 1em;
+    color: #3da9de; /* Customize cursor color */
+    padding: 0.2em;
+    animation: blink 1s infinite;
+    margin: 0; /* Adjust margin if needed */
+}
+
+.user-input-container {
+    position: relative;
+    bottom: -100px; /* Start off-screen */
+    opacity: 0;
+    transition: bottom 1s ease-out, opacity 1s ease-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    z-index: 11;
+}
+
+.user-input-container.animate {
+    bottom: 0; /* Move into view */
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+

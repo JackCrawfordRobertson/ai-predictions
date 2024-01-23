@@ -1,38 +1,26 @@
-.App {
-  text-align: center;
+.responsive-paragraph {
+    margin: 0;
+    font-size: 1em;
+    padding-bottom: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-header{
+
+z-index: 10;
+
+}
+/* In your component's CSS file */
+
+/* Styles for screens with a maximum width of 600px (typically mobile devices) */
+@media only screen and (max-width: 600px) {
+    .responsive-paragraph {
+        width: 100%;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Styles for screens wider than 600px (typically desktop devices) */
+@media only screen and (min-width: 601px) {
+    .responsive-paragraph {
+        width: 60%;
+    }
 }
