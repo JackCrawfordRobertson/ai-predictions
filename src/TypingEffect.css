@@ -57,4 +57,7 @@
     .App {
         height: 100%; /* Remove height on mobile devices */
     }
+    .react-typewriter-text {
+        font-size: 1.5em; /* Adjust font size on mobile devices */
+    }
 }
