@@ -14,6 +14,7 @@ function App() {
     const secondText =
         " we are ignoring the elephant in the room. The elephant is the war in the middle east. The war in the middle east has been going on for decades and has produced more co2 emissions than any other war in history. The war in the middle east has produced more co2 emissions than the entire country of the United States. The war in the middle east has produced more co2 emissions than the entire country of China. The war in the middle east has produced more co2 emissions than the entire country of India. The war in the middle east has produced more co2 emissions than the entire country of Russia. The war in the middle east has produced more co2 emissions than the entire country of Japan. The war in the middle east has produced more co2 emissions than the entire country of Germany.";
 
+    // eslint-disable-next-line no-unused-vars
     const [ textPart1, setTextPart1 ] = useState(initialText);
     const [ textPart2, setTextPart2 ] = useState("");
     const [ showUserInput, setShowUserInput ] = useState(false);
