@@ -1,9 +1,25 @@
+/* app.css */
+
+.App {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%; /* Ensure max width is 100% */
+    height: auto; /* Adjust height */
+    z-index: 10;
+}
+
+.App-header {
+    flex-shrink: 0; /* Prevent the header from shrinking */
+    width: 100%;
+}
+
 .responsive-paragraph {
     margin: 0;
     font-size: 1em;
     padding-bottom: 1em;
 }
-
 
 /* In your component's CSS file */
 

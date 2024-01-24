@@ -1,16 +1,4 @@
-.App {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; /* Full height of the viewport */
-    justify-content: space-between; /* Space out the header and whole-section */
-    margin-bottom: 2em;
-
-}
-
-.App-header {
-    flex-shrink: 0; /* Prevent the header from shrinking */
-}
-
+/* TypingEffect.css */
 .whole-section {
     display: flex;
     flex-direction: column;
@@ -18,7 +6,6 @@
     align-items: center; /* Center content horizontally */
     flex-grow: 1; /* Grow to fill remaining space */
     width: 100%; /* Full width */
-    z-index: 10;
 }
 
 .react-typewriter-text {
@@ -26,11 +13,11 @@
     color: #333333; /* Customize text color */
     font-weight: 900; /* Make cursor thicker */
     line-height: 1.5em;
+    width: 100%; /* Full width */
 }
 
 .graphic {
     width: 40vw;
-    z-index: 10;
 }
 
 .react-typewriter-pointer {
@@ -40,6 +27,44 @@
     animation: blink 1s infinite;
     margin: 0; /* Adjust margin if needed */
 }
+
+
+.messages-section {
+    max-height: auto; /* Adjust the height as needed */
+    overflow-y: auto;
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    width: auto; /* Full width */
+    margin-bottom: 2em;
+}
+
+.message {
+    background-color: #3da9de; /* Lavender background */
+    color: #ffffff; /* Dark text color */
+    padding: 0.3em 0.5em;
+    border-radius: 15px;
+    margin-bottom: 8px;
+    max-width: 100%;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.message-timestamp {
+    font-size: 0.8em;
+    color: #ffffff;
+    margin-top: 4px;
+}
+
+
+
+
+
 
 /*  */
 
@@ -54,10 +79,9 @@
         padding: 0; /* Remove padding on mobile devices */
         margin: 0; /* Remove margin on mobile devices */
     }
-    .App {
-        height: 100%; /* Remove height on mobile devices */
-    }
+  
     .react-typewriter-text {
         font-size: 1.5em; /* Adjust font size on mobile devices */
+        width: 100%; /* Full width on mobile devices */
     }
 }

@@ -5,7 +5,10 @@ import Typewriter from "react-typewriter-effect";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {motion} from "framer-motion";
+import {firestore} from "./firebase";
+import {collection, query, orderBy, limit, getDocs, addDoc} from "firebase/firestore";
 
+import "./App.css";
 import "./TypingEffect.css";
 
 function App() {
@@ -19,8 +22,11 @@ function App() {
     const [ textPart2, setTextPart2 ] = useState("");
     const [ showUserInput, setShowUserInput ] = useState(false);
     const [ typewriterKey, setTypewriterKey ] = useState(0);
+    const [ messages, setMessages ] = useState([]);
+    const [ userInput, setUserInput ] = useState("");
 
     useEffect(() => {
+        fetchMessages();
         const timeoutId = setTimeout(() => {
             setShowUserInput(true);
         }, 10000); // Delay for 10 seconds before showing user input
@@ -28,11 +34,45 @@ function App() {
         return () => clearTimeout(timeoutId);
     }, []);
 
-    const handleSubmit = () => {
+    const fetchMessages = async () => {
+        const messagesCollectionRef = collection(firestore, "messages");
+        // Create a query that orders messages by timestamp in descending order and limits to the last 3
+        const q = query(messagesCollectionRef, orderBy("timestamp", "desc"), limit(3));
+    
+        const messagesSnapshot = await getDocs(q);
+        const messagesData = messagesSnapshot.docs.map((doc) => doc.data());
+        // Set the messages as they are fetched (newest first)
+        setMessages(messagesData);
+    };
+    
+
+    const handleChange = (event) => {
+        setUserInput(event.target.value);
+    };
+
+    const handleSubmit = async () => {
         if (!textPart2) {
-            setTextPart2(secondText); // Only set second text if it's not already set
-            setTypewriterKey((prevKey) => prevKey + 1); // Increment the key to force re-render
+            setTextPart2(secondText);
+            setTypewriterKey((prevKey) => prevKey + 1);
         }
+
+        if (userInput.trim() !== "") {
+            const messagesCollectionRef = collection(firestore, "messages");
+            await addDoc(messagesCollectionRef, {
+                content: userInput,
+                timestamp: new Date(),
+            });
+
+            setUserInput("");
+            fetchMessages();
+        }
+    };
+
+    const formatDate = (timestamp) => {
+        // Convert Firestore Timestamp to JavaScript Date object
+        const date = timestamp.toDate();
+        // Format the date as you prefer, e.g., 'MM/DD/YYYY, h:mm a'
+        return date.toLocaleString();
     };
 
     return (
@@ -66,7 +106,13 @@ function App() {
                             style={{display: "flex", alignItems: "stretch", marginTop: "2em"}}
                         >
                             {/* TextField and Button components */}
-                            <TextField label="What Next?" variant="outlined" style={{flex: 1, marginRight: "1em"}} />
+                            <TextField
+                                label="What Next?"
+                                variant="outlined"
+                                style={{flex: 1, marginRight: "1em"}}
+                                value={userInput}
+                                onChange={handleChange} // Make sure this is being used
+                            />{" "}
                             <Button
                                 variant="contained"
                                 style={{
@@ -80,6 +126,17 @@ function App() {
                                 Submit
                             </Button>
                         </motion.div>
+                    )}
+                    {showUserInput && (
+                      <div className="messages-section">
+                      {messages.map((message, index) => (
+                          <div key={index} className="message">
+                              <div className="message-content">{message.content}</div>
+                              <div className="message-timestamp">{formatDate(message.timestamp)}</div>
+                          </div>
+                       ))}
+                   </div>
+                   
                     )}
                 </div>
             </div>
