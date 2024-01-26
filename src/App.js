@@ -83,8 +83,7 @@ function App() {
                 </h1>
 
                 <p className="responsive-paragraph">
-                    Read the start of the sentence below and give a guess to what you think should come next. Then click
-                    the Submit button to see what the GitHub Copilot thought on the day.
+                Read the beginning of the sentence below and try to guess what comes next. After making your guess, click the 'Submit' button to see the GitHub Copilot's suggestion from that day.
                 </p>
             </header>
             <div className="whole-section">
@@ -128,7 +127,10 @@ function App() {
                         </motion.div>
                     )}
                     {showUserInput && (
-                      <div className="messages-section">
+                        <div className="messages-section">
+                            <h3 style={{marginTop: "0", marginBottom:".5em", color: "#333333"}}>
+                            Previous replies
+                </h3>
                       {messages.map((message, index) => (
                           <div key={index} className="message">
                               <div className="message-content">{message.content}</div>
